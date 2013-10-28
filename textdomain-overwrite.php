@@ -62,7 +62,7 @@ function textdomain_overwrite_load(){
 	
 	/* 
 	 * Overwriting strings from a plugin
-     *
+	 *
 	 * The .mo file has to be named [domain]-[locale].mo
 	 * e.g. for the plugin Jetpack with the textdomain "jetpack"
 	 * and the locale "de_DE" is has to be jetpack-de_DE.mo
