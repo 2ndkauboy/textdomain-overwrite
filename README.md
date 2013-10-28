@@ -16,9 +16,9 @@ wp-content
 ├── languages
 │   └── overwrites
 │       └── core
-│           └── de_DE.mo
+│       │   └── core
 │       └── plugins
-│           └── jetpack-de_DE.mo
+│       │   └── jetpack-de_DE.mo
 │       └── themes
 │           └── twentythirteen
 │               └── de_DE.mo
