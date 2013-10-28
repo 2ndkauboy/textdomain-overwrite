@@ -15,9 +15,9 @@ and the twentythirteen theme for the locale de_DE:
 wp-content
 ├── languages
 │   └── overwrites
-│       └── core
+│       ├── core
 │       │   └── core
-│       └── plugins
+│       ├── plugins
 │       │   └── jetpack-de_DE.mo
 │       └── themes
 │           └── twentythirteen
