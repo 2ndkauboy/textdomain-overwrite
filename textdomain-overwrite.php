@@ -2,7 +2,7 @@
 /*
 Plugin Name: Textdomain Overwrite
 Description: Load custom localization files to overwrite core, plugin and theme strings
-Version: 0.1
+Version: 0.2
 Author: Bernhard Kau
 Author URI: http://kau-boys.de
 */
@@ -50,11 +50,11 @@ function textdomain_overwrite_load(){
 	$stylesheet = get_stylesheet();
 	
 	// check if active theme is a childtheme
-	if ( $template != $stylesheet) {
+	if ( $template != $stylesheet ) {
 		// if an overwrite file exists, load it for the child themes textdomain
-		$template_languagefile = WP_LANG_DIR . '/overwrites/themes/' . $template . '/' . $locale . '.mo';
+		$template_languagefile = WP_LANG_DIR . '/overwrites/themes/' . $stylesheet . '/' . $locale . '.mo';
 		if ( file_exists ( $core_languagefile ) ) {
-			load_textdomain( $template, $template_languagefile );
+			load_textdomain( $stylesheet, $template_languagefile );
 		}
 	}
 	
