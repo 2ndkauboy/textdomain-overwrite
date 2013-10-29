@@ -1,5 +1,4 @@
 <?php
-
 /*
 Plugin Name: Textdomain Overwrite
 Description: Load custom localization files to overwrite core, plugin and theme strings
@@ -7,7 +6,6 @@ Version: 0.1
 Author: Bernhard Kau
 Author URI: http://kau-boys.de
 */
-
  
 function textdomain_overwrite_load(){
 	$locale = get_locale();
@@ -20,7 +18,7 @@ function textdomain_overwrite_load(){
 	 */
 	 
 	// if an overwrite file exists, load it for the core (default) textdomain
-	$core_languagefile = WP_LANG_DIR . '/overwrite/core/' . $locale . '.mo';
+	$core_languagefile = WP_LANG_DIR . '/overwrites/core/' . $locale . '.mo';
 	if ( file_exists ( $core_languagefile ) ) {
 		load_textdomain( 'default', $core_languagefile );
 	}
@@ -36,7 +34,7 @@ function textdomain_overwrite_load(){
 	$template = get_template();
 	
 	// if an overwrite file exists, load it for the themes textdomain
-	$template_languagefile = WP_LANG_DIR . '/overwrite/themes/' . $template . '/' . $locale . '.mo';
+	$template_languagefile = WP_LANG_DIR . '/overwrites/themes/' . $template . '/' . $locale . '.mo';
 	if ( file_exists ( $core_languagefile ) ) {
 		load_textdomain( $template, $template_languagefile );
 	}
@@ -54,7 +52,7 @@ function textdomain_overwrite_load(){
 	// check if active theme is a childtheme
 	if ( $template != $stylesheet) {
 		// if an overwrite file exists, load it for the child themes textdomain
-		$template_languagefile = WP_LANG_DIR . '/overwrite/themes/' . $template . '/' . $locale . '.mo';
+		$template_languagefile = WP_LANG_DIR . '/overwrites/themes/' . $template . '/' . $locale . '.mo';
 		if ( file_exists ( $core_languagefile ) ) {
 			load_textdomain( $template, $template_languagefile );
 		}
@@ -75,7 +73,7 @@ function textdomain_overwrite_load(){
 	$active_plugins_string = implode( (array) $active_plugins );
 	
 	// get all overwrite files for plugins
-	$plugin_languagefiles = glob( WP_LANG_DIR . '/overwrite/plugins/*.mo' );
+	$plugin_languagefiles = glob( WP_LANG_DIR . '/overwrites/plugins/*.mo' );
 	
 	// if the overwrite file matches an active plugin, load it for the plugins textdomain
 	foreach( $plugin_languagefiles as $plugin_languagefile ) {
