@@ -1,11 +1,13 @@
 <?php
 /*
-Plugin Name: Textdomain Overwrite
-Description: Load custom localization files to overwrite core, plugin and theme strings
-Version: 0.2
-Author: Bernhard Kau
-Author URI: http://kau-boys.de
-*/
+ * Plugin Name: Textdomain Overwrite
+ * Description: Load custom localization files to overwrite core, plugin and theme strings
+ * Version: 0.2
+ * Author: Bernhard Kau
+ * Author URI: http://kau-boys.de
+ * License: GPLv3
+ * License URI: http://www.gnu.org/licenses/gpl-3.0
+ */
  
 function textdomain_overwrite_load(){
 	$locale = get_locale();
