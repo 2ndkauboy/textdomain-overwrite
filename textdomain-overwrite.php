@@ -78,12 +78,14 @@ function textdomain_overwrite_load(){
 	$plugin_languagefiles = glob( WP_LANG_DIR . '/overwrites/plugins/*.mo' );
 	
 	// if the overwrite file matches an active plugin, load it for the plugins textdomain
-	foreach( $plugin_languagefiles as $plugin_languagefile ) {
-		$plugin_basename = basename( $plugin_languagefile );
-		if ( preg_match( '/(.*)-' . $locale . '\.mo/', $plugin_basename, $matches ) ) {
-			$domain = $matches[1];
-			if ( false !== strpos( $active_plugins_string, $domain ) ) {
-				load_textdomain( $domain, $plugin_languagefile );
+	if ( $plugin_languagefiles ) {
+		foreach( $plugin_languagefiles as $plugin_languagefile ) {
+			$plugin_basename = basename( $plugin_languagefile );
+			if ( preg_match( '/(.*)-' . $locale . '\.mo/', $plugin_basename, $matches ) ) {
+				$domain = $matches[1];
+				if ( false !== strpos( $active_plugins_string, $domain ) ) {
+					load_textdomain( $domain, $plugin_languagefile );
+				}
 			}
 		}
 	}
