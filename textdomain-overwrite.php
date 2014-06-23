@@ -40,7 +40,7 @@ class Textdomain_Overwrite {
 		}
 
 		// register action that is triggered, whenever a textdomain is loaded
-		add_action( 'override_load_textdomain', array( $this, 'textdomain_overwrite_load' ), 10, 3 );
+		add_action( 'override_load_textdomain', array( $this, 'overwrite_textdomain' ), 10, 3 );
 	}
 
 	/*
@@ -53,7 +53,7 @@ class Textdomain_Overwrite {
 	function overwrite_textdomain( $override, $domain, $mofile ) {
 
 		// if the filter was not called with an overwrite mofile, return false which will proceed with the mofile given and prevents an endless recursion
-		if ( strpos( $mofile, $overwrite_folder ) !== false ) {
+		if ( strpos( $mofile, $this->overwrite_folder ) !== false ) {
 			return false;
 		}
 
@@ -81,4 +81,4 @@ class Textdomain_Overwrite {
 
 }
 
-add_action( 'plugins_loaded', array( 'Textdomain_Overwrite', 'plugin_setup' ) );
+new Textdomain_Overwrite;
