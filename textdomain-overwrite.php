@@ -31,9 +31,23 @@ function textdomain_overwrite_load() {
 		$textdomain_filename = WP_LANG_DIR . '/overwrites/' . $loaded_textdomain . '-' . $locale . '.mo';
 
 		if ( file_exists( $textdomain_filename ) ) {
-			load_textdomain( $loaded_textdomain, $textdomain_filename );
+			#load_textdomain( $loaded_textdomain, $textdomain_filename );
 		}
 	}
 }
 
+function override_textdomain( $override, $domain, $mofile ) {
+
+	// get current locale
+	$locale = get_locale();
+
+	$textdomain_filename = WP_LANG_DIR . '/overwrites/' . $domain . '-' . $locale . '.mo';
+
+	if ( file_exists( $textdomain_filename ) ) {
+		load_textdomain( $domain, $textdomain_filename );
+		return false;
+	}
+}
+
 add_action( 'plugins_loaded', 'textdomain_overwrite_load' );
+add_filter( 'override_load_textdomain', 'override_textdomain', 10, 3 );
