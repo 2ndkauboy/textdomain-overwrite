@@ -17,37 +17,25 @@
  * e.g. for the plugin Jetpack with the textdomain "jetpack"
  * and the locale "de_DE" is has to be jetpack-de_DE.mo
  */
-function textdomain_overwrite_load() {
-	global $l10n;
+function textdomain_overwrite_load( $override, $domain, $mofile ) {
+
+	$overwrite_folder = WP_LANG_DIR . '/overwrites/';
 
 	// get current locale
 	$locale = get_locale();
 
-	// get all loaded textdomains
-	$loaded_textdomains = array_keys( $l10n );
-
-	// if an overwrite file exists, load it to overwrite the original strings
-	foreach ( $loaded_textdomains as $loaded_textdomain ) {
-		$textdomain_filename = WP_LANG_DIR . '/overwrites/' . $loaded_textdomain . '-' . $locale . '.mo';
-
-		if ( file_exists( $textdomain_filename ) ) {
-			#load_textdomain( $loaded_textdomain, $textdomain_filename );
-		}
-	}
-}
-
-function override_textdomain( $override, $domain, $mofile ) {
-
-	// get current locale
-	$locale = get_locale();
-
-	$textdomain_filename = WP_LANG_DIR . '/overwrites/' . $domain . '-' . $locale . '.mo';
-
-	if ( file_exists( $textdomain_filename ) ) {
-		load_textdomain( $domain, $textdomain_filename );
+	// if the filter was not called with an overwrite mofile, return false which will procede with the mofile given and prevents an endless recursion
+	if ( strpos( $mofile, $overwrite_folder ) !== false ) {
 		return false;
 	}
-}
 
-add_action( 'plugins_loaded', 'textdomain_overwrite_load' );
-add_filter( 'override_load_textdomain', 'override_textdomain', 10, 3 );
+	// if an overwrite file exists, load it to overwrite the original strings
+	$overwrite_mofile = $overwrite_folder . $domain . '-' . $locale . '.mo';
+
+	if ( file_exists( $overwrite_mofile ) ) {
+		load_textdomain( $domain, $overwrite_mofile );
+	}
+
+	return false;
+}
+add_action( 'override_load_textdomain', 'textdomain_overwrite_load', 10, 3 );
