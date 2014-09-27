@@ -8,12 +8,9 @@ plugins and themes, using it's own language files
 ## Usage
 
 Just create a subfolder named `overwrites` in the `WP_LANG_DIR` folder (most probably /wp-content/languages).
-The plugin does not distinguish if a mofile is used by a plugin, theme or even the core. Just name it after
-the textdomain, followed by the locale, separated with a dash. You can also change overwrites for single blogs
-in a multisite setup only. Just move those overwrite files into the `blogs.dir` folder, with a subfolder for
-the blog_id (just like for upload). This is how your folder structure might look like, if you overwrite the core,
-the jetpack plugin and the twentythirteen theme for the locale `de_DE` with some special translations for the
-second multisite blog and the jetpack textdomain:
+The plugin does not distinguish if a mofile is used by a plugin, theme or even the core. ~Just name it after
+the textdomain, followed by the locale, separated with a dash. This is how your folder structure might look like,
+if you overwrite the core, the jetpack plugin and the twentythirteen theme for the locale `de_DE`:
 
 ```
 wp-content
@@ -22,10 +19,16 @@ wp-content
 │       ├── default-de_DE.mo
 │       ├── jetpack-de_DE.mo
 │       ├── twentythirteen-de_DE.mo
-│       └── blogs.dir
-│           └── 2
-│               └── jetpack-de_DE.mo
 
 ```
 
 All files must be prepended with the name of the textdomain. The textdomain for the core is `default`.
+
+## Changelog:
+
+# Version 0.2
+- First draft plugin version using procedural programming and a rather compilcated folder structure
+
+# Version 1.0
+- Rewrite the whole plugin to an object oriented version
+- Dramatically simplify the folder and naming structure, enabling themes/plugins/core to share a textdomain
