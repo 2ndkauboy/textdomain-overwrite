@@ -36,7 +36,7 @@ string   ->    your custom translation
 For the exact lineup of the .po-file please open the original .po in a txt editor. Then create a new textfile and copy the string markups matching the strings you want to translate differently over into that new textfile. When done, save it like so: textdomain-de_DE.po (your locale)
 Generate a .mo-File with PoEdit.
 
-Please also see this Blogpost for background info (in german language):
+Please also see this Blogpost for background info (in German language):
 http://kau-boys.de/1498/wordpress/wordpress-core-strings-ohne-verlust-beim-naechsten-update-ueberschreiben
 
 ## Changelog:
