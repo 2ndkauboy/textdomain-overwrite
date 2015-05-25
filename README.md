@@ -24,19 +24,19 @@ wp-content
 
 All files must be prepended with the name of the textdomain. The textdomain for the core is `default`.
 
-It is not recommended to use the functionality of this plugin to overwrite a complete language file by simply copy pasting it to forementioned folder structure. Instead it is suggested to create a new .po-file for the desired textdomain containing only the strings and their translations that would differ from the original translation file.
+It is not recommended to use the functionality of this plugin to overwrite a complete language file by simply copy-pasting it to forementioned folder structure. Instead it is suggested to create a new .po-file for the desired textdomain containing only those strings and their translations that would differ from the original translation file.
 Schematic example:
 
-original po file
+original .po-file
 string   ->    translation
 
-your new po file
+your new .po-file
 string   ->    your custom translation
 
-For the exact lineup of the .po-file please open the original .po in a txt editor. Then create a new textfile and copy the string markups matching the strings you want to translate differently over into that new textfile. When done, save it like so: textdomain-de_DE.po (your locale)
-Generate a .mo-File with PoEdit.
+For the exact lineup of the .po-file please open the original .po in a texteditor of your choice. Then create a new textfile and copy the string markups matching the strings you want to translate differently over into that new textfile. When done, save it like so: textdomain-de_DE.po (your locale)
+Generate a .mo-file with PoEdit.
 
-Please also see this Blogpost for background info (in german language):
+Please also see this blogpost for background info (in German language):
 http://kau-boys.de/1498/wordpress/wordpress-core-strings-ohne-verlust-beim-naechsten-update-ueberschreiben
 
 ## Changelog:
