@@ -41,9 +41,12 @@ http://kau-boys.de/1498/wordpress/wordpress-core-strings-ohne-verlust-beim-naech
 
 ## Changelog:
 
-# Version 0.2
-- First draft plugin version using procedural programming and a rather compilcated folder structure
+# Version 1.0.1
+- Adding a "how to" section to the readme (Thanks to @SaskiaLund!)
 
 # Version 1.0
 - Rewrite the whole plugin to an object oriented version
 - Dramatically simplify the folder and naming structure, enabling themes/plugins/core to share a textdomain
+
+# Version 0.2
+- First draft plugin version using procedural programming and a rather compilcated folder structure

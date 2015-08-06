@@ -2,7 +2,7 @@
 /*
  * Plugin Name: Textdomain Overwrite
  * Description: Load custom localization files to overwrite core, plugin and theme strings
- * Version: 1.0
+ * Version: 1.0.1
  * Author: Bernhard Kau
  * Author URI: http://kau-boys.de
  * License: GPLv3
